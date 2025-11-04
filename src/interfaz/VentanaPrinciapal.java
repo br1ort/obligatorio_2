@@ -29,11 +29,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private void initComponents() {
 
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
@@ -44,35 +39,15 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
+        fileMenu = new javax.swing.JMenu();
+        openMenuItem = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
+        saveAsMenuItem = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setText("Areas");
-
-        openMenuItem.setText("Alta");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(openMenuItem);
-
-        saveMenuItem.setText("Baja");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setText("Modificación");
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setText("Realizar movimientos");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
+        editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
         cutMenuItem.setText("Alta");
@@ -115,6 +90,33 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         jMenu1.add(aboutMenuItem2);
 
         menuBar.add(jMenu1);
+
+        fileMenu.setMnemonic('f');
+        fileMenu.setText("Areas");
+
+        openMenuItem.setText("Alta");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(openMenuItem);
+
+        saveMenuItem.setText("Baja");
+        fileMenu.add(saveMenuItem);
+
+        saveAsMenuItem.setText("Modificación");
+        fileMenu.add(saveAsMenuItem);
+
+        exitMenuItem.setText("Realizar movimientos");
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
 
         setJMenuBar(menuBar);
 
