@@ -4,6 +4,8 @@
  */
 package obligatorio_2;
 
+import interfaz.seleccionPrincipal;
+import interfaz.VentanaPrinciapal;
 /**
  *
  * @author Br1
@@ -14,7 +16,7 @@ public class run {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new seleccionPrincipal().setVisible(true);
     }
     
 }

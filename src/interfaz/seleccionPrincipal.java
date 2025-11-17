@@ -36,6 +36,11 @@ public class seleccionPrincipal extends javax.swing.JFrame {
         setTitle("Comenzar con...");
 
         btnNuevo.setText("Sistema nuevo");
+        btnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNuevo(evt);
+            }
+        });
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -43,6 +48,11 @@ public class seleccionPrincipal extends javax.swing.JFrame {
         });
 
         btnGuardado.setText("Sistema guardado");
+        btnGuardado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardado(evt);
+            }
+        });
         btnGuardado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardadoActionPerformed(evt);
@@ -50,6 +60,11 @@ public class seleccionPrincipal extends javax.swing.JFrame {
         });
 
         btnPrecargados.setText("Sistema con datos precargados");
+        btnPrecargados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPrecargados(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,6 +100,18 @@ public class seleccionPrincipal extends javax.swing.JFrame {
     private void btnGuardadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardadoActionPerformed
+
+    private void btnNuevo(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo
+        new VentanaPrinciapal("Nuevo").setVisible(true);
+    }//GEN-LAST:event_btnNuevo
+
+    private void btnGuardado(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardado
+        new VentanaPrinciapal("Guardado").setVisible(true);
+    }//GEN-LAST:event_btnGuardado
+
+    private void btnPrecargados(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrecargados
+        new VentanaPrinciapal("Precargados").setVisible(true);
+    }//GEN-LAST:event_btnPrecargados
 
     /**
      * @param args the command line arguments

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import obligatorio_2.Sistema;
 import javax.swing.JOptionPane;
 
@@ -14,13 +16,24 @@ public class AltaArea extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AltaArea.class.getName());
     Sistema sistema = new Sistema();
-    /**
-     * Creates new form AltaArea
-     */
+    private javax.swing.DefaultListModel<String> listaModel;
     public AltaArea() {
         initComponents();
-        
+        DefaultListModel<String> modeloLista;
+        JList<String> lista;
+        modeloLista = new DefaultListModel<>();
+        lista = new JList<>(modeloLista);
+        listaModel = new javax.swing.DefaultListModel<>();
+        jList1.setModel(listaModel);
+
     }
+    public void cargarLista(java.util.List<String> items) {
+       listaModel.clear();
+        if (items != null) {
+            for (String s : items) listaModel.addElement(s);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -256,8 +269,6 @@ public class AltaArea extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void enviarForm(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarForm
-    
-    String caracteristica="Es area";
     String nombreArea = txtNombre.getText().trim();
     String descripcion = txtDescripcion.getText().trim();
     String presupuestoStr = txtPresupuesto.getText().trim();
@@ -267,9 +278,13 @@ public class AltaArea extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Por favor complete todos los campos y seleccione un ítem.");
         return;
     }
-    if (sistema.validarNombreUnico(nombreArea,"Es area")) {
+    if (!sistema.validarNombreUnico(nombreArea,"AREA")) {
         JOptionPane.showMessageDialog(this, "El nombre ya existe");
         return;
+    } else {
+        double presupuesto=Double.parseDouble(presupuestoStr);
+        JOptionPane.showMessageDialog(this, "Guardado con éxito");
+        sistema.cargarDatosArea(nombreArea, descripcion, presupuesto);
     }
 
     // Convertir presupuesto a número
