@@ -60,6 +60,10 @@ public class Sistema {
         
     }
     
+    public java.util.ArrayList<Area> getListaAreas() {
+        return this.listaArea;
+    }
+    
     public void cargarDatos(String datos) {
         ArchivoLectura archivo = new ArchivoLectura(datos);
         while (archivo.hayMasLineas()) {
