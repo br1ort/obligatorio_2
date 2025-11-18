@@ -11,6 +11,7 @@ import obligatorio_2.Sistema;
 public class VentanaPrinciapal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrinciapal.class.getName());
+    Sistema sistema=new Sistema();
 
     /**
      * Creates new form VentanaPrinciapal
@@ -51,22 +52,33 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
+        cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Alta");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaManager(evt);
+            }
+        });
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
 
+        deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
+        helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
+        contentsMenuItem.setMnemonic('c');
         contentsMenuItem.setText("Alta");
         helpMenu.add(contentsMenuItem);
 
@@ -79,9 +91,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             }
         });
 
+        aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("Report inteligente");
         jMenu1.add(aboutMenuItem1);
 
+        aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("Reporte de estado de áreas");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +109,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Areas");
 
+        openMenuItem.setMnemonic('o');
         openMenuItem.setText("Alta");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,12 +118,15 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         fileMenu.add(openMenuItem);
 
+        saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Baja");
         fileMenu.add(saveMenuItem);
 
+        saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Modificación");
         fileMenu.add(saveAsMenuItem);
 
+        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +168,12 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private void aboutMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutMenuItem2ActionPerformed
+
+    private void altaManager(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaManager
+         
+        AltaManager ventanaAltaManager= new AltaManager(sistema);
+        ventanaAltaManager.setVisible(true);
+    }//GEN-LAST:event_altaManager
 
     /**
      * @param args the command line arguments
