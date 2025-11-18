@@ -90,7 +90,8 @@ public class seleccionPrincipal extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(673, 166));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -102,14 +103,17 @@ public class seleccionPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardadoActionPerformed
 
     private void btnNuevo(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo
+        this.dispose();
         new VentanaPrinciapal("Nuevo").setVisible(true);
     }//GEN-LAST:event_btnNuevo
 
     private void btnGuardado(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardado
+        this.dispose();
         new VentanaPrinciapal("Guardado").setVisible(true);
     }//GEN-LAST:event_btnGuardado
 
     private void btnPrecargados(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrecargados
+        this.dispose();
         new VentanaPrinciapal("Precargados").setVisible(true);
     }//GEN-LAST:event_btnPrecargados
 
