@@ -42,17 +42,15 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        altaArea = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
-        cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Alta");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,24 +59,19 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
-        copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
         editMenu.add(copyMenuItem);
 
-        pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
 
-        deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
-        helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
-        contentsMenuItem.setMnemonic('c');
         contentsMenuItem.setText("Alta");
         helpMenu.add(contentsMenuItem);
 
@@ -91,11 +84,9 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             }
         });
 
-        aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("Report inteligente");
         jMenu1.add(aboutMenuItem1);
 
-        aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("Reporte de estado de áreas");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,24 +100,21 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Areas");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Alta");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        altaArea.setMnemonic('o');
+        altaArea.setText("Alta");
+        altaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
+                altaAreaActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        fileMenu.add(altaArea);
 
-        saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Baja");
         fileMenu.add(saveMenuItem);
 
-        saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Modificación");
         fileMenu.add(saveAsMenuItem);
 
-        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,9 +145,10 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_openMenuItemActionPerformed
+    private void altaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAreaActionPerformed
+        AltaArea ventanaAlta = new AltaArea(this.sistema);
+        ventanaAlta.setVisible(true);
+    }//GEN-LAST:event_altaAreaActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
@@ -183,6 +172,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
+    private javax.swing.JMenuItem altaArea;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
@@ -193,7 +183,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
