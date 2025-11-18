@@ -144,19 +144,21 @@ public class AltaManager extends javax.swing.JFrame {
         
     String nombreManager = txtNombre.getText().trim();
     String cedula = txtCedula.getText().trim();
-    String antiguedad = txtAntiguedad.getText().trim();
+    String antiguedadStr = txtAntiguedad.getText().trim();
     String celular= txtCelular.getText().trim();
+    int antiguedad=Integer.parseInt(antiguedadStr);
 
     // validar vacios
-    if (nombreManager.isEmpty() || cedula.isEmpty() || antiguedad.isEmpty()) {
+    if (nombreManager.isEmpty() || cedula.isEmpty() || antiguedadStr.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor complete todos los campos y seleccione un ítem.");
         return;
     }
-    if (!sistema.validarNombreUnico(nombreManager,"MANAGER")) {
-        JOptionPane.showMessageDialog(this, "El nombre ya existe");
+    if (!sistema.validarNombreUnico(cedula,"MANAGER")) {
+        JOptionPane.showMessageDialog(this, "El MANAGER ya existe");
         return;
     } else {
         JOptionPane.showMessageDialog(this, "Guardado con éxito");
+        sistema.cargarDatosManager(nombreManager, cedula, antiguedad, celular);
     }
     }//GEN-LAST:event_enviarForm
 

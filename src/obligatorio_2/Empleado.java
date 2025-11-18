@@ -1,16 +1,16 @@
 package obligatorio_2;
 
-public class Empleado {
+public class Empleado extends Persona {
     private String nombre;
     private String cedula;
+    private String celular;
     private String curriculum;
     private double salarioMensual;
     private Manager manager;
     private Area area;
 
-    public Empleado(String nombre, String cedula, String curriculum, double salarioMensual, Manager manager, Area area) {
-        this.nombre = nombre;
-        this.cedula = cedula;
+    public Empleado(String nombre, String cedula, String celular,String curriculum, double salarioMensual, Manager manager, Area area) {
+        super(nombre, cedula, celular);
         this.curriculum = curriculum;
         this.salarioMensual = salarioMensual;
         this.manager = manager;
