@@ -91,7 +91,7 @@ public class ModificarArea extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Presupuesto Anual (US$):");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(340, 260, 170, 20);
+        jLabel4.setBounds(340, 270, 170, 20);
 
         txtNombre.setEditable(false);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class ModificarArea extends javax.swing.JFrame {
 
         txtPresupuesto.setEditable(false);
         getContentPane().add(txtPresupuesto);
-        txtPresupuesto.setBounds(340, 290, 280, 30);
+        txtPresupuesto.setBounds(340, 300, 280, 30);
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCancelar.setText("Cerrar");
@@ -124,7 +124,7 @@ public class ModificarArea extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnModificar);
-        btnModificar.setBounds(340, 360, 120, 30);
+        btnModificar.setBounds(340, 360, 150, 30);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);

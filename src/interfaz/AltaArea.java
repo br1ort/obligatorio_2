@@ -36,13 +36,14 @@ public class AltaArea extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtDescripcion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPresupuesto = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstAreas = new javax.swing.JList<>();
         btnCancelar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alta de Áreas");
@@ -70,14 +71,6 @@ public class AltaArea extends javax.swing.JFrame {
         jLabel2.setText("Descripción:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(340, 130, 160, 20);
-
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtDescripcion);
-        txtDescripcion.setBounds(340, 160, 280, 90);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Presupuesto Anual (US$):");
@@ -114,7 +107,7 @@ public class AltaArea extends javax.swing.JFrame {
         jScrollPane1.setBounds(30, 60, 250, 330);
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Cerrar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -123,6 +116,13 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(btnCancelar);
         btnCancelar.setBounds(500, 360, 120, 30);
 
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setRows(5);
+        jScrollPane2.setViewportView(txtDescripcion);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(340, 160, 280, 100);
+
         setSize(new java.awt.Dimension(666, 459));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -130,10 +130,6 @@ public class AltaArea extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
 
     private void txtPresupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPresupuestoActionPerformed
         // TODO add your handling code here:
@@ -241,8 +237,9 @@ public class AltaArea extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> lstAreas;
-    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPresupuesto;
     // End of variables declaration//GEN-END:variables

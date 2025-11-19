@@ -43,7 +43,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         aboutMenuItem2 = new javax.swing.JMenuItem();
         modificarArea = new javax.swing.JMenu();
         altaArea = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
+        bajaArea = new javax.swing.JMenuItem();
         btnModificarArea = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
 
@@ -123,9 +123,14 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(altaArea);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Baja");
-        modificarArea.add(saveMenuItem);
+        bajaArea.setMnemonic('s');
+        bajaArea.setText("Baja");
+        bajaArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajaAreaActionPerformed(evt);
+            }
+        });
+        modificarArea.add(bajaArea);
 
         btnModificarArea.setMnemonic('a');
         btnModificarArea.setText("Modificación");
@@ -196,6 +201,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         ventanaModificarArea.setVisible(true);
     }//GEN-LAST:event_btnModificarAreaActionPerformed
 
+    private void bajaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaAreaActionPerformed
+        BajaArea ventanaBaja = new BajaArea(this.sistema);
+        ventanaBaja.setVisible(true);
+    }//GEN-LAST:event_bajaAreaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +215,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
     private javax.swing.JMenuItem altaArea;
+    private javax.swing.JMenuItem bajaArea;
     private javax.swing.JMenuItem btnModificarArea;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
@@ -217,7 +228,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu modificarArea;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

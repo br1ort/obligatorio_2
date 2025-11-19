@@ -64,6 +64,10 @@ public class Sistema {
         return this.listaArea;
     }
     
+    public java.util.ArrayList<Empleado> getListaEmpleados() {
+        return this.listaEmpleados;
+    }
+    
     public void cargarDatos(String datos) {
         ArchivoLectura archivo = new ArchivoLectura(datos);
         while (archivo.hayMasLineas()) {
