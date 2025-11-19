@@ -3,25 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-import obligatorio_2.Sistema;
+import java.awt.HeadlessException;
+import java.util.Collections;
+import java.util.Comparator;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import obligatorio_2.Sistema;
+import obligatorio_2.Area;
+import obligatorio_2.Area;
+import obligatorio_2.Manager;
+import obligatorio_2.Sistema;
 
-/**
- *
- * @author Br1
- */
 public class AltaManager extends javax.swing.JFrame {
-    Sistema sistema = new Sistema();
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AltaManager.class.getName());
-
-    /**
-     * Creates new form AltaManager
-     */
-    public AltaManager(Sistema sy) {
-        sistema=sy;
+    public Sistema sistema;
+    
+    public AltaManager(Sistema s){
         initComponents();
+        this.sistema = s;
+        limpiarCampos();
+        actualizarLista();
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,107 +33,111 @@ public class AltaManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        areasRegistradas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAntiguedad = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCelular = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstAreas = new javax.swing.JList<>();
         txtNombre = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
-        txtAntiguedad = new javax.swing.JTextField();
-        txtCelular = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Alta de Managers");
+        getContentPane().setLayout(null);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        areasRegistradas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        areasRegistradas.setText("Managers Registrados:");
+        getContentPane().add(areasRegistradas);
+        areasRegistradas.setBounds(30, 30, 160, 20);
 
-        txtNombre.setText("Nombre");
-        txtNombre.setToolTipText("");
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Nombre:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(340, 60, 160, 30);
 
-        txtCedula.setText("Cedula");
-        txtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaActionPerformed(evt);
-            }
-        });
-
-        txtAntiguedad.setText("Antiguedad");
+        txtAntiguedad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtAntiguedad.setText("txtNombre");
         txtAntiguedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAntiguedadActionPerformed(evt);
             }
         });
+        getContentPane().add(txtAntiguedad);
+        txtAntiguedad.setBounds(340, 210, 280, 30);
 
-        txtCelular.setText("Celular");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Antiguedad");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(340, 180, 160, 30);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Celular");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(340, 240, 170, 30);
+
+        txtCelular.setText("txtPresupuesto");
         txtCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelularActionPerformed(evt);
             }
         });
+        getContentPane().add(txtCelular);
+        txtCelular.setBounds(340, 270, 280, 30);
 
-        jButton1.setText("Enviar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                enviarForm(evt);
+        btnAgregar.setText("Agregar Manager");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregar);
+        btnAgregar.setBounds(490, 360, 130, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAntiguedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(161, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(50, 50, 50))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAntiguedad, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        lstAreas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lstAreas);
 
-        pack();
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 60, 250, 330);
+
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setText("txtNombre");
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre);
+        txtNombre.setBounds(340, 90, 280, 30);
+
+        txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCedula.setText("txtNombre");
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCedula);
+        txtCedula.setBounds(340, 150, 280, 30);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Cédula");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(340, 120, 160, 30);
+
+        getAccessibleContext().setAccessibleName("Alta de Manager");
+
+        setSize(new java.awt.Dimension(669, 440));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtAntiguedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAntiguedadActionPerformed
         // TODO add your handling code here:
@@ -141,37 +147,111 @@ public class AltaManager extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCelularActionPerformed
 
-    private void enviarForm(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarForm
-        
-    String nombreManager = txtNombre.getText().trim();
-    String cedula = txtCedula.getText().trim();
-    String antiguedadStr = txtAntiguedad.getText().trim();
-    String celular= txtCelular.getText().trim();
-    int antiguedad=Integer.parseInt(antiguedadStr);
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+      guardarManager();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    // validar vacios
-    if (nombreManager.isEmpty() || cedula.isEmpty() || antiguedadStr.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor complete todos los campos y seleccione un ítem.");
-        return;
-    }
-    if (!sistema.validarNombreUnico(cedula,"MANAGER")) {
-        JOptionPane.showMessageDialog(this, "El MANAGER ya existe");
-        return;
-    } else {
-        JOptionPane.showMessageDialog(this, "Guardado con éxito");
-        sistema.cargarDatosManager(nombreManager, cedula, antiguedad, celular);
-    }
-    }//GEN-LAST:event_enviarForm
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void guardarManager() {
+        try {
+            // Validar que los campos no estén vacíos
+            if (txtAntiguedad.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (txtCedula.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "La descripción no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (txtCelular.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El presupuesto no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (txtNombre.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El presupuesto no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if(!sistema.validarNombreUnico(txtCedula.getText().trim(),"MANAGER")) {
+                JOptionPane.showMessageDialog(this, "El Manager ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Crear el manager y agregarla al sistema
+            Manager nuevoManager = new Manager(
+                txtNombre.getText().trim(),
+                txtCedula.getText().trim(),
+                Integer.parseInt(txtAntiguedad.getText().trim()), 
+                txtCelular.getText().trim()
+            );
+            
+            sistema.getListaManagers().add(nuevoManager);
+            
+            JOptionPane.showMessageDialog(this, 
+                "Manager '" + nuevoManager.getNombre() + "' creada exitosamente!\n" +
+                "Antiguedad de " + nuevoManager.getAntiguedad(), 
+                "Manager Guardada", 
+                JOptionPane.INFORMATION_MESSAGE);
+            actualizarLista();
+            limpiarCampos();
+            
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (HeadlessException ex) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void actualizarLista() {
+        // Obtener la lista del sistema
+        java.util.ArrayList<Manager> lista = sistema.getListaManagers();
+
+        // Ordenar por nombre creciente (Requisito del PDF )
+        Collections.sort(lista, new Comparator<Manager>() {
+            @Override
+            public int compare(Manager o1, Manager o2) {
+                return Integer.compare(o2.getAntiguedad(), o1.getAntiguedad());
+            }
+        });
+
+        // Pasar los datos al JList visual
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for (Manager m : lista) {
+            listModel.addElement(m.getNombre() + " (" + m.getAntiguedad() + " años)");
+        }
+        lstAreas.setModel(listModel);
+
+    }
+    
+    private void limpiarCampos() {
+        txtAntiguedad.setText("");
+        txtNombre.setText("");
+        txtCelular.setText("");
+        txtCedula.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel areasRegistradas;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lstAreas;
     private javax.swing.JTextField txtAntiguedad;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCelular;

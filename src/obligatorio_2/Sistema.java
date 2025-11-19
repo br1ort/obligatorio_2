@@ -63,6 +63,10 @@ public class Sistema {
     public java.util.ArrayList<Area> getListaAreas() {
         return this.listaArea;
     }
+    public java.util.ArrayList<Manager> getListaManagers() {
+        return this.listaManagers;
+    }
+    
     
     public java.util.ArrayList<Empleado> getListaEmpleados() {
         return this.listaEmpleados;
