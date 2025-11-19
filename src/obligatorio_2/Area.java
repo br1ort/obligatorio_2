@@ -23,6 +23,11 @@ public class Area {
     public double getPresupuesto() {
         return presupuesto;
     }
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
     public void setPresupuesto(double presupuesto) {
         this.presupuesto = presupuesto;
     } 

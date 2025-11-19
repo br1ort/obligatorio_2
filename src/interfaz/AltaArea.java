@@ -42,23 +42,22 @@ public class AltaArea extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstAreas = new javax.swing.JList<>();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alta de Áreas");
         getContentPane().setLayout(null);
 
-        areasRegistradas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        areasRegistradas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         areasRegistradas.setText("Áreas Registradas:");
         getContentPane().add(areasRegistradas);
         areasRegistradas.setBounds(30, 30, 130, 20);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(340, 60, 160, 30);
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNombre.setText("txtNombre");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -67,12 +66,11 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(txtNombre);
         txtNombre.setBounds(340, 90, 280, 30);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Descripción:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(340, 130, 160, 20);
 
-        txtDescripcion.setText("txtDescripcion");
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionActionPerformed(evt);
@@ -81,12 +79,11 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(txtDescripcion);
         txtDescripcion.setBounds(340, 160, 280, 90);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Presupuesto Anual (US$):");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(340, 260, 170, 20);
 
-        txtPresupuesto.setText("txtPresupuesto");
         txtPresupuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPresupuestoActionPerformed(evt);
@@ -95,6 +92,7 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(txtPresupuesto);
         txtPresupuesto.setBounds(340, 290, 280, 30);
 
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnAgregar.setText("Agregar Área");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +102,7 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(btnAgregar);
         btnAgregar.setBounds(340, 360, 120, 30);
 
+        lstAreas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lstAreas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -114,7 +113,17 @@ public class AltaArea extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 60, 250, 330);
 
-        setSize(new java.awt.Dimension(669, 440));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar);
+        btnCancelar.setBounds(500, 360, 120, 30);
+
+        setSize(new java.awt.Dimension(666, 459));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,6 +142,10 @@ public class AltaArea extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
       guardarArea();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void guardarArea() {
         try {
@@ -223,6 +236,7 @@ public class AltaArea extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel areasRegistradas;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

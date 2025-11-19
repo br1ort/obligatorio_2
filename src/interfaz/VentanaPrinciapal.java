@@ -41,16 +41,18 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
-        fileMenu = new javax.swing.JMenu();
+        modificarArea = new javax.swing.JMenu();
         altaArea = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
+        btnModificarArea = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
+        cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Alta");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,19 +61,24 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
 
+        deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
+        helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
+        contentsMenuItem.setMnemonic('c');
         contentsMenuItem.setText("Alta");
         helpMenu.add(contentsMenuItem);
 
@@ -84,9 +91,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             }
         });
 
+        aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("Report inteligente");
         jMenu1.add(aboutMenuItem1);
 
+        aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("Reporte de estado de áreas");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +106,13 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Areas");
+        modificarArea.setMnemonic('f');
+        modificarArea.setText("Areas");
+        modificarArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarAreaActionPerformed(evt);
+            }
+        });
 
         altaArea.setMnemonic('o');
         altaArea.setText("Alta");
@@ -107,23 +121,31 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
                 altaAreaActionPerformed(evt);
             }
         });
-        fileMenu.add(altaArea);
+        modificarArea.add(altaArea);
 
+        saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Baja");
-        fileMenu.add(saveMenuItem);
+        modificarArea.add(saveMenuItem);
 
-        saveAsMenuItem.setText("Modificación");
-        fileMenu.add(saveAsMenuItem);
+        btnModificarArea.setMnemonic('a');
+        btnModificarArea.setText("Modificación");
+        btnModificarArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarAreaActionPerformed(evt);
+            }
+        });
+        modificarArea.add(btnModificarArea);
 
+        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        modificarArea.add(exitMenuItem);
 
-        menuBar.add(fileMenu);
+        menuBar.add(modificarArea);
 
         setJMenuBar(menuBar);
 
@@ -138,7 +160,8 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(416, 311));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
@@ -164,6 +187,15 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         ventanaAltaManager.setVisible(true);
     }//GEN-LAST:event_altaManager
 
+    private void modificarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAreaActionPerformed
+
+    }//GEN-LAST:event_modificarAreaActionPerformed
+
+    private void btnModificarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAreaActionPerformed
+        ModificarArea ventanaModificarArea = new ModificarArea(this.sistema);
+        ventanaModificarArea.setVisible(true);
+    }//GEN-LAST:event_btnModificarAreaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -173,18 +205,18 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
     private javax.swing.JMenuItem altaArea;
+    private javax.swing.JMenuItem btnModificarArea;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu modificarArea;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
