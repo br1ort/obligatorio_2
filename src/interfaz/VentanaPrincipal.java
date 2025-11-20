@@ -210,7 +210,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RealizarMovimiento(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarMovimiento
-        RealizarMovimiento realizarMovimiento = new RealizarMovimiento(this.sistema);
+        ReporteMovimientos realizarMovimiento = new ReporteMovimientos(this.sistema);
         realizarMovimiento.setVisible(true);
     }//GEN-LAST:event_RealizarMovimiento
 

@@ -12,14 +12,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author bruno
  */
-public class RealizarMovimiento extends javax.swing.JFrame {
+public class ReporteMovimientos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RealizarMovimiento.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReporteMovimientos.class.getName());
 
     /**
      * Creates new form RealizarMovimiento
      */
-    public RealizarMovimiento(Sistema sys) {
+    public ReporteMovimientos(Sistema sys) {
         initComponents();
         Sistema sistema=sys;
         DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();

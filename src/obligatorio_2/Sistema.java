@@ -185,7 +185,7 @@ public class Sistema {
         listaManagers.clear();
     }
     
-        public boolean realizarMovimiento(Empleado empleado, Area areaDestino, int mes) {
+    public boolean realizarMovimiento(Empleado empleado, Area areaDestino, int mes) {
         
         Area areaOrigen = empleado.getArea();
 
