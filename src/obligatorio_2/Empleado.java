@@ -1,9 +1,6 @@
 package obligatorio_2;
 
 public class Empleado extends Persona {
-    private String nombre;
-    private String cedula;
-    private String celular;
     private String curriculum;
     private double salarioMensual;
     private Manager manager;
@@ -17,39 +14,34 @@ public class Empleado extends Persona {
         this.area = area;
     }
     
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public String getCedula() {
-        return cedula;
-    }
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
     public String getCurriculum() {
         return curriculum;
     }
-    public void setCurriculum(String curriculum) {
-        this.curriculum = curriculum;
-    }
+    
     public double getSalarioMensual() {
         return salarioMensual;
     }
-    public void setSalarioMensual(double salarioMensual) {
-        this.salarioMensual = salarioMensual;
-    }
+    
     public Manager getManager() {
         return manager;
     }
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
+    
     public Area getArea() {
         return area;
     }
+    
+    public void setCurriculum(String curriculum) {
+        this.curriculum = curriculum;
+    }
+
+    public void setSalarioMensual(double salarioMensual) {
+        this.salarioMensual = salarioMensual;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
     public void setArea(Area area) {
         this.area = area;
     }

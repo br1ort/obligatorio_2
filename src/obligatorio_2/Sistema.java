@@ -7,57 +7,53 @@ public class Sistema {
     private ArrayList<Empleado>listaEmpleados= new ArrayList<Empleado>();
     private ArrayList<Manager>listaManagers=new ArrayList<Manager>();
 
-    public boolean validarNombreUnico(String validar, String tipo) {
-        
-        String v = validar.trim();
-        
-        
-
-        switch (tipo) {
-            case "AREA":
-                for (Area area: listaArea) {
-                    if (area.getNombre() != null && area.getNombre().equalsIgnoreCase(v)) {
-                        return false;
-                    }
+public boolean validarNombreUnico(String validar, String tipo) {
+    String v = validar.trim();
+    
+    switch (tipo) {
+        case "AREA":
+            for (Area area: listaArea) {
+                if (area.getNombre() != null && area.getNombre().equalsIgnoreCase(v)) {
+                    return false;
                 }
-                break;
-            case "MANAGER":
-                for (Manager manager: listaManagers) {
-                    System.out.print(manager.getCedula());
-                    if (manager.getCedula() != null && manager.getCedula().equalsIgnoreCase(v)) {
-                        return false;
-                    }
+            }
+            break;
+            
+        case "MANAGER":
+        case "EMPLEADO":
+            
+            for (Empleado empleado: listaEmpleados) {
+                if (empleado.getCedula() != null && empleado.getCedula().equalsIgnoreCase(v)) {
+                    return false;
                 }
-                break;
-            case "EMPLEADO":
-                for (Empleado empleado: listaEmpleados) {
-                    if (empleado.getCedula() != null && empleado.getCedula().equalsIgnoreCase(v)) {
-                        return false;
-                    }
+            }
+           
+            for (Manager manager: listaManagers) {
+                if (manager.getCedula() != null && manager.getCedula().equalsIgnoreCase(v)) {
+                    return false;
                 }
-                break;
-            default:
-                // opcional: manejar fallback o lanzar excepción por tipo desconocido
-                break;
-        }
-        return true;
+            }
+            break;
+            
+        default:
+            break;
     }
+    return true;
+}
     
     public void cargarDatosArea(String nombreArea, String descripcion, double presupuesto) {
        Area area= new Area(nombreArea,descripcion,presupuesto);
         listaArea.add(area);
     }
     
-    public void cargarDatosEmpleado(String nombre, String cedula,String celular, String curriculum, double salarioMensual, Manager manager, Area area) {
-        Empleado empleado=new Empleado( nombre,  cedula,  celular, curriculum,  salarioMensual,  manager,  area);
+    public void cargarDatosEmpleado(String nombre, String cedula, String celular, String curriculum, double salarioMensual, Manager manager, Area area) {
+        Empleado empleado = new Empleado(nombre, cedula, celular, curriculum, salarioMensual, manager, area);
         listaEmpleados.add(empleado);
-        
     }
-    
+
     public void cargarDatosManager(String nombre, String cedula, int antiguedad, String celular) {
-        Manager manager=new Manager(nombre,cedula,antiguedad,celular);
+        Manager manager = new Manager(nombre, cedula, antiguedad, celular);
         listaManagers.add(manager);
-        
     }
     
     public java.util.ArrayList<Area> getListaAreas() {

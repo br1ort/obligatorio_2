@@ -69,6 +69,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
         comboArea = new javax.swing.JComboBox<>();
         comboManager = new javax.swing.JComboBox<>();
         areasRegistradas1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtDetalles = new javax.swing.JTextArea();
 
@@ -92,7 +93,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
         jScrollPane1.setBounds(20, 60, 290, 270);
 
         areasRegistradas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        areasRegistradas.setText("Detalles empleado:");
+        areasRegistradas.setText("Detalles del empleado:");
         getContentPane().add(areasRegistradas);
         areasRegistradas.setBounds(20, 340, 190, 20);
 
@@ -208,8 +209,10 @@ public class AltaEmpleado extends javax.swing.JFrame {
         txtDetalles.setRows(5);
         jScrollPane3.setViewportView(txtDetalles);
 
-        getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(20, 370, 290, 260);
+        jScrollPane4.setViewportView(jScrollPane3);
+
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(20, 370, 290, 260);
 
         setSize(new java.awt.Dimension(666, 681));
         setLocationRelativeTo(null);
@@ -298,7 +301,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
         detalles.append("Nombre: ").append(empleado.getNombre()).append("\n");
         detalles.append("Cédula: ").append(empleado.getCedula()).append("\n");
         detalles.append("Celular: ").append(empleado.getCelular()).append("\n");
-        detalles.append("Salario: US$ ").append(empleado.getSalarioMensual()).append("\n");
+        detalles.append("Salario Mensual: US$ ").append(empleado.getSalarioMensual()).append("\n");
         detalles.append("Manager: ").append(empleado.getManager().getNombre()).append("\n");
         detalles.append("Área: ").append(empleado.getArea().getNombre()).append("\n");
         detalles.append("Currículum: ").append(empleado.getCurriculum());
@@ -453,7 +456,6 @@ public class AltaEmpleado extends javax.swing.JFrame {
         txtCelular.setText("");
         txtCurriculum.setText("");
         txtSalario.setText("");
-        txtDetalles.setText("");
     }
     
     
@@ -479,6 +481,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JList<String> lstEmpleados;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCelular;
