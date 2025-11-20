@@ -8,15 +8,14 @@ import obligatorio_2.Sistema;
  *
  * @author Br1
  */
-public class VentanaPrinciapal extends javax.swing.JFrame {
+public class VentanaPrincipal extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrinciapal.class.getName());
     Sistema sistema=new Sistema();
 
     /**
      * Creates new form VentanaPrinciapal
      */
-    public VentanaPrinciapal(String seleccion) {
+    public VentanaPrincipal(String seleccion) {
         initComponents();
         
         switch (seleccion) {

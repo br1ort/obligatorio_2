@@ -92,17 +92,17 @@ public class seleccionPrincipal extends javax.swing.JFrame {
 
     private void btnNuevo(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo
         this.dispose();
-        new VentanaPrinciapal("Nuevo").setVisible(true);
+        new VentanaPrincipal("Nuevo").setVisible(true);
     }//GEN-LAST:event_btnNuevo
 
     private void btnGuardado(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardado
         this.dispose();
-        new VentanaPrinciapal("Guardado").setVisible(true);
+        new VentanaPrincipal("Guardado").setVisible(true);
     }//GEN-LAST:event_btnGuardado
 
     private void btnPrecargados(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrecargados
         this.dispose();
-        new VentanaPrinciapal("Precargados").setVisible(true);
+        new VentanaPrincipal("Precargados").setVisible(true);
     }//GEN-LAST:event_btnPrecargados
 
     private void btnPrecargadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecargadosActionPerformed

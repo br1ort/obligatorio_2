@@ -46,4 +46,8 @@ public class Empleado extends Persona {
         this.area = area;
     }
     
+    public double calcularSalarioRestante(int mes) {
+        int mesesRestantes = 12 - mes + 1; // Se incluye el mes actual
+        return this.salarioMensual * mesesRestantes;
+    }
 }

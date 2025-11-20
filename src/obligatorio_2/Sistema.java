@@ -6,6 +6,7 @@ public class Sistema {
     private ArrayList<Area> listaArea = new ArrayList<Area>();
     private ArrayList<Empleado>listaEmpleados= new ArrayList<Empleado>();
     private ArrayList<Manager>listaManagers=new ArrayList<Manager>();
+    private ArrayList<String>listaMovimientos=new ArrayList<String>();
 
     public boolean validarNombreUnico(String validar, String tipo) {
     String v = validar.trim();
@@ -184,4 +185,62 @@ public class Sistema {
         listaManagers.clear();
     }
     
+        public boolean realizarMovimiento(Empleado empleado, Area areaDestino, int mes) {
+        
+        Area areaOrigen = empleado.getArea();
+
+        if (areaOrigen == null || areaDestino == null || empleado == null) {
+            return false;
+        }
+
+        if (areaOrigen.equals(areaDestino)) {
+            return false;
+        }
+
+        double salarioRestante = empleado.calcularSalarioRestante(mes);
+
+        if (!areaDestino.puedeAceptarSalario(salarioRestante)) {
+            return false;
+        }
+        areaOrigen.removerSalario(salarioRestante);
+        areaDestino.agregarSalario(salarioRestante);
+        empleado.setArea(areaDestino);
+        registrarMovimiento(mes, areaOrigen, areaDestino, empleado);
+        
+        return true;
+    }
+    
+    // Método de registrar movimientos en arrayList, para el reporte
+    private void registrarMovimiento(int mes, Area areaOrigen, Area areaDestino, Empleado empleado) {
+        listaMovimientos.add(mes+"|"+areaOrigen.getNombre()+"|"+areaDestino.getNombre()+"|"+empleado.getNombre());
+    }
+    
+    public java.util.ArrayList<Empleado> getEmpleadosPorArea(Area area) {
+        java.util.ArrayList<Empleado> empleadosArea = new java.util.ArrayList<>();
+        for (Empleado emp : listaEmpleados) {
+            if (emp.getArea().equals(area)) {
+                empleadosArea.add(emp);
+            }
+        }
+        return empleadosArea;
+    }
+    
+    public double calcularReintegroAreaOrigen(Empleado empleado, int mes) {
+        return empleado.calcularSalarioRestante(mes);
+    }
+    
+    public double calcularCostoAreaDestino(Empleado empleado, int mes) {
+        return empleado.calcularSalarioRestante(mes);
+    }
+    
+    public String getInformacionMovimiento(Empleado empleado, Area areaDestino, int mes) {
+        double salarioRestante = empleado.calcularSalarioRestante(mes);
+        double reintegroOrigen = calcularReintegroAreaOrigen(empleado, mes);
+        double costoDestino = calcularCostoAreaDestino(empleado, mes);
+
+        return String.format(
+            "Salario restante: US$ %.2f\nReintegro área origen: US$ %.2f\nCosto área destino: US$ %.2f",
+            salarioRestante, reintegroOrigen, costoDestino
+        );
+    }
 }
