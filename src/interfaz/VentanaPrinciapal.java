@@ -76,12 +76,12 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         altaEmpleado = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         modificarArea = new javax.swing.JMenu();
         altaArea = new javax.swing.JMenuItem();
         bajaArea = new javax.swing.JMenuItem();
@@ -93,6 +93,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/logo.png"))); // NOI18N
 
+        editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
         cutMenuItem.setText("Alta");
@@ -113,9 +114,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
@@ -149,9 +147,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         jMenu1.add(aboutMenuItem2);
 
+        jMenuItem1.setText("Reporte de movimientos");
+        jMenu1.add(jMenuItem1);
+
         menuBar.add(jMenu1);
 
-        modificarArea.setMnemonic('f');
         modificarArea.setText("Áreas");
         modificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(btnModificarArea);
 
-        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,12 +272,12 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnModificarArea;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JLabel fondo;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu modificarArea;
     private javax.swing.JMenuItem pasteMenuItem;

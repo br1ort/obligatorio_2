@@ -1,6 +1,0 @@
-AREA|Comunicaciones|Comunicaciones internas, reglas y protocolos, comunicaciones con proveedores y clientes|20000.0
-AREA|Personal|Reclutamiento de personal, promociones, gestión de cargos|100000.0
-AREA|Seguridad|Seguridad física, vigilancia, seguridad informática, protocolos y políticas de seguridad|120000.0
-MANAGER|Ana Martínez|4.568.369-1|10|099 123456
-MANAGER|Laura Torales|3.589.257-5|1|099 654321
-MANAGER|Juan Pablo Zapata|4.555.197-7|5|099 202020
