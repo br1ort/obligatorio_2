@@ -56,7 +56,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
-        cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Alta");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,13 +66,16 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BajaManagerActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
-        pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
 
-        deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
         editMenu.add(deleteMenuItem);
 
@@ -82,7 +84,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
-        altaEmpleado.setMnemonic('c');
         altaEmpleado.setText("Alta");
         altaEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,11 +101,9 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             }
         });
 
-        aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("Report inteligente");
         jMenu1.add(aboutMenuItem1);
 
-        aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("Reporte de estado de áreas");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +114,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
-        modificarArea.setMnemonic('f');
         modificarArea.setText("Áreas");
         modificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +121,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
             }
         });
 
-        altaArea.setMnemonic('o');
         altaArea.setText("Alta");
         altaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +129,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(altaArea);
 
-        bajaArea.setMnemonic('s');
         bajaArea.setText("Baja");
         bajaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +137,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(bajaArea);
 
-        btnModificarArea.setMnemonic('a');
         btnModificarArea.setText("Modificación");
         btnModificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +145,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(btnModificarArea);
 
-        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +213,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         AltaEmpleado ventanaAlta = new AltaEmpleado(this.sistema);
         ventanaAlta.setVisible(true);
     }//GEN-LAST:event_altaEmpleadoActionPerformed
+
+    private void BajaManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaManagerActionPerformed
+        BajaManager bajaManager = new BajaManager(this.sistema);
+        bajaManager.setVisible(true);
+    }//GEN-LAST:event_BajaManagerActionPerformed
 
     /**
      * @param args the command line arguments

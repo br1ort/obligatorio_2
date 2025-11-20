@@ -4,7 +4,7 @@
  */
 package interfaz;
 import obligatorio_2.Sistema;
-import obligatorio_2.Area;
+import obligatorio_2.Manager;
 import obligatorio_2.Empleado;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,18 +18,19 @@ import javax.swing.JOptionPane;
  */
 public class BajaManager extends javax.swing.JFrame {
     private Sistema sistema;
-    private Area areaSeleccionada;
+    private Manager managerSeleccionado;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BajaManager.class.getName());
 
     /**
-     * Creates new form BajaArea
+     * Creates new form BajaManager
      */
     public BajaManager(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
-        this.areaSeleccionada = null;
+        this.managerSeleccionado = null;
         btnEliminar.setEnabled(false);
+        actualizarListaManagers();
     }
 
     /**
@@ -43,60 +44,56 @@ public class BajaManager extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtDescripcion = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        txtPresupuesto = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstAreas = new javax.swing.JList<>();
+        lstManagers = new javax.swing.JList<>();
+        txtNombre = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtAntiguedad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Áreas Registradas (sin empleados):");
+        jLabel1.setText("Managers Registrados (sin empleados):");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 30, 250, 16);
+        jLabel1.setBounds(30, 30, 270, 16);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(340, 60, 80, 20);
 
-        txtNombre.setEditable(false);
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtCedula.setEditable(false);
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtCedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombre);
-        txtNombre.setBounds(340, 90, 280, 30);
+        getContentPane().add(txtCedula);
+        txtCedula.setBounds(340, 160, 280, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Descripción:");
+        jLabel3.setText("Antiguedad:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(340, 130, 110, 20);
-
-        txtDescripcion.setEditable(false);
-        txtDescripcion.setColumns(20);
-        txtDescripcion.setRows(5);
-        getContentPane().add(txtDescripcion);
-        txtDescripcion.setBounds(340, 160, 280, 100);
+        jLabel3.setBounds(340, 200, 110, 20);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Presupuesto Anual (US$):");
+        jLabel4.setText("Celular");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(340, 270, 170, 20);
 
-        txtPresupuesto.setEditable(false);
-        getContentPane().add(txtPresupuesto);
-        txtPresupuesto.setBounds(340, 300, 280, 30);
+        txtCelular.setEditable(false);
+        getContentPane().add(txtCelular);
+        txtCelular.setBounds(340, 300, 280, 30);
 
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar Área");
+        btnEliminar.setText("Eliminar Manager");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -104,6 +101,7 @@ public class BajaManager extends javax.swing.JFrame {
         });
         getContentPane().add(btnEliminar);
         btnEliminar.setBounds(340, 360, 150, 30);
+        btnEliminar.getAccessibleContext().setAccessibleName("Eliminar Manager");
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCancelar.setText("Cerrar");
@@ -115,103 +113,128 @@ public class BajaManager extends javax.swing.JFrame {
         getContentPane().add(btnCancelar);
         btnCancelar.setBounds(500, 360, 120, 30);
 
-        lstAreas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lstAreas.setModel(new javax.swing.AbstractListModel<String>() {
+        lstManagers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lstManagers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        lstAreas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lstManagers.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstAreasValueChanged(evt);
+                lstManagersValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(lstAreas);
+        jScrollPane1.setViewportView(lstManagers);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 60, 250, 330);
+
+        txtNombre.setEditable(false);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre);
+        txtNombre.setBounds(340, 90, 280, 30);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Cédula:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(340, 130, 110, 20);
+
+        txtAntiguedad.setEditable(false);
+        txtAntiguedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAntiguedadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtAntiguedad);
+        txtAntiguedad.setBounds(340, 230, 280, 30);
 
         setSize(new java.awt.Dimension(666, 459));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lstAreasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAreasValueChanged
-        if (!evt.getValueIsAdjusting() && lstAreas.getSelectedIndex() != -1) {
-            int selectedIndex = lstAreas.getSelectedIndex();
-            java.util.ArrayList<Area> areasSinEmpleados = obtenerAreasSinEmpleados();
+    private void lstManagersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstManagersValueChanged
+        if (!evt.getValueIsAdjusting() && lstManagers.getSelectedIndex() != -1) {
+            int selectedIndex = lstManagers.getSelectedIndex();
+            java.util.ArrayList<Manager> managersSinEmpleados = obtenerManagersSinEmpleados();
             
-            if (selectedIndex >= 0 && selectedIndex < areasSinEmpleados.size()) {
-                areaSeleccionada = areasSinEmpleados.get(selectedIndex);
-                cargarDatosArea();
+            if (selectedIndex >= 0 && selectedIndex < managersSinEmpleados.size()) {
+                managerSeleccionado = managersSinEmpleados.get(selectedIndex);
+                cargarDatosManager();
                 btnEliminar.setEnabled(true);
             }
         }
-    }//GEN-LAST:event_lstAreasValueChanged
+    }//GEN-LAST:event_lstManagersValueChanged
 
-    private void actualizarListaAreas() {
-        java.util.ArrayList<Area> areasSinEmpleados = obtenerAreasSinEmpleados();
+    private void actualizarListaManagers() {
+        java.util.ArrayList<Manager> managersSinEmpleados = obtenerManagersSinEmpleados();
         
         // Ordenar por nombre creciente
-        Collections.sort(areasSinEmpleados, new Comparator<Area>() {
+        Collections.sort(managersSinEmpleados, new Comparator<Manager>() {
             @Override
-            public int compare(Area o1, Area o2) {
+            public int compare(Manager o1, Manager o2) {
                 return o1.getNombre().compareToIgnoreCase(o2.getNombre());
             }
         });
         
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        for (Area area : areasSinEmpleados) {
-            listModel.addElement(area.getNombre());
+        for (Manager manager : managersSinEmpleados) {
+            listModel.addElement(manager.getNombre());
         }
-        lstAreas.setModel(listModel);
+        lstManagers.setModel(listModel);
         
         // Limpiar selección y datos
-        areaSeleccionada = null;
+        managerSeleccionado = null;
         limpiarCampos();
         btnEliminar.setEnabled(false);
     }
     
-    private java.util.ArrayList<Area> obtenerAreasSinEmpleados() {
-        java.util.ArrayList<Area> areasSinEmpleados = new java.util.ArrayList<>();
-        java.util.ArrayList<Area> todasLasAreas = sistema.getListaAreas();
+    private java.util.ArrayList<Manager> obtenerManagersSinEmpleados() {
+        java.util.ArrayList<Manager> managersSinEmpleados = new java.util.ArrayList<>();
+        java.util.ArrayList<Manager> todosLosManagers = sistema.getListaManagers();
 
-        for (Area area : todasLasAreas) {
+        for (Manager manager : todosLosManagers) {
             boolean tieneEmpleados = false;
 
             // Verificar si algún empleado está en esta área
             for (Empleado empleado : sistema.getListaEmpleados()) {
-                if (empleado.getArea().equals(area)) {
+                if (empleado.getManager().equals(manager)) {
                     tieneEmpleados = true;
                     break;
                 }
             }
 
             if (!tieneEmpleados) {
-                areasSinEmpleados.add(area);
+                managersSinEmpleados.add(manager);
             }
         }
 
-        return areasSinEmpleados;
+        return managersSinEmpleados;
     }
         
-    private void cargarDatosArea() {
-        if (areaSeleccionada != null) {
-            txtNombre.setText(areaSeleccionada.getNombre());
-            txtDescripcion.setText(areaSeleccionada.getDescripcion());
-            txtPresupuesto.setText(String.format("US$ %.2f", areaSeleccionada.getPresupuesto()));
+    private void cargarDatosManager() {
+        if (managerSeleccionado != null) {
+            txtCedula.setText(managerSeleccionado.getNombre());
+            txtNombre.setText(managerSeleccionado.getCedula());
+            txtCelular.setText(managerSeleccionado.getCelular());
+            txtAntiguedad.setText(""+(managerSeleccionado.getAntiguedad()));
         }
     }
     
     private void limpiarCampos() {
+        txtCedula.setText("");
         txtNombre.setText("");
-        txtDescripcion.setText("");
-        txtPresupuesto.setText("");
+        txtCelular.setText("");
+        txtAntiguedad.setText("");
     }
     
-    private void eliminarArea() {
-        if (areaSeleccionada == null) {
+    private void eliminarManager() {
+        if (managerSeleccionado == null) {
             JOptionPane.showMessageDialog(this, 
-                "Por favor seleccione un área para eliminar", 
+                "Por favor seleccione un Manager para eliminar", 
                 "Error", 
                 JOptionPane.ERROR_MESSAGE);
             return;
@@ -219,36 +242,44 @@ public class BajaManager extends javax.swing.JFrame {
         
         // Confirmar eliminación
         int confirmacion = JOptionPane.showConfirmDialog(this,
-            "¿Está seguro de que desea eliminar el área '" + areaSeleccionada.getNombre() + "'?",
+            "¿Está seguro de que desea eliminar el área '" + managerSeleccionado.getNombre() + "'?",
             "Confirmar Eliminación",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.QUESTION_MESSAGE);
         
         if (confirmacion == JOptionPane.YES_OPTION) {
             // Eliminar el área del sistema
-            sistema.getListaAreas().remove(areaSeleccionada);
+            sistema.getListaManagers().remove(managerSeleccionado);
             
             JOptionPane.showMessageDialog(this,
-                "Área '" + areaSeleccionada.getNombre() + "' eliminada exitosamente",
+                "Área '" + managerSeleccionado.getNombre() + "' eliminada exitosamente",
                 "Área Eliminada",
                 JOptionPane.INFORMATION_MESSAGE);
             
             // Actualizar la lista
-            actualizarListaAreas();
+            actualizarListaManagers();
         }
     }
     
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        eliminarArea();
+        eliminarManager();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtAntiguedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAntiguedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAntiguedadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,10 +289,12 @@ public class BajaManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> lstAreas;
-    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JList<String> lstManagers;
+    private javax.swing.JTextField txtAntiguedad;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPresupuesto;
     // End of variables declaration//GEN-END:variables
 }
