@@ -34,6 +34,7 @@ public class seleccionPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Comenzar con...");
+        getContentPane().setLayout(null);
 
         btnNuevo.setText("Sistema nuevo");
         btnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -46,6 +47,8 @@ public class seleccionPrincipal extends javax.swing.JFrame {
                 btnNuevoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNuevo);
+        btnNuevo.setBounds(60, 60, 210, 70);
 
         btnGuardado.setText("Sistema guardado");
         btnGuardado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,6 +61,8 @@ public class seleccionPrincipal extends javax.swing.JFrame {
                 btnGuardadoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGuardado);
+        btnGuardado.setBounds(360, 60, 210, 70);
 
         btnPrecargados.setText("Sistema con datos precargados");
         btnPrecargados.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -65,32 +70,15 @@ public class seleccionPrincipal extends javax.swing.JFrame {
                 btnPrecargados(evt);
             }
         });
+        btnPrecargados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrecargadosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPrecargados);
+        btnPrecargados.setBounds(650, 60, 210, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardado, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPrecargados, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardado)
-                    .addComponent(btnPrecargados)
-                    .addComponent(btnNuevo))
-                .addGap(62, 62, 62))
-        );
-
-        setSize(new java.awt.Dimension(673, 166));
+        setSize(new java.awt.Dimension(959, 204));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,6 +104,10 @@ public class seleccionPrincipal extends javax.swing.JFrame {
         this.dispose();
         new VentanaPrinciapal("Precargados").setVisible(true);
     }//GEN-LAST:event_btnPrecargados
+
+    private void btnPrecargadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecargadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPrecargadosActionPerformed
 
     /**
      * @param args the command line arguments
