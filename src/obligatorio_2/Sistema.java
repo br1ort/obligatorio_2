@@ -68,7 +68,9 @@ public boolean validarNombreUnico(String validar, String tipo) {
     }
     
     public void cargarDatos(String datos) {
+        
         ArchivoLectura archivo = new ArchivoLectura(datos);
+        
         while (archivo.hayMasLineas()) {
             String linea = archivo.linea();
             if (linea == null) continue;
@@ -76,7 +78,6 @@ public boolean validarNombreUnico(String validar, String tipo) {
             if (partes.length == 0) continue;
             String queEs = partes[0];
 
-            // CORRECCIÓN: debe ser == "AREA"
             if (queEs.equals("AREA")) {
                 if (partes.length < 4) continue;
                 String nombreArea = partes[1];
@@ -93,6 +94,7 @@ public boolean validarNombreUnico(String validar, String tipo) {
                 cargarDatosManager(nombre, cedula, antiguedad, celular);
             }
         }
+        archivo.cerrar();
 
         ArchivoLectura archivo2 = new ArchivoLectura(datos);
         while (archivo2.hayMasLineas()) {
@@ -127,10 +129,26 @@ public boolean validarNombreUnico(String validar, String tipo) {
                 cargarDatosEmpleado(nombre, cedula, celular, curriculum, salarioMensual, manager, area);
             }
         }
+        archivo2.cerrar();
     }
     
-    public void guardadDatosFinales()  {
-      ArchivoGrabacion archivo=new ArchivoGrabacion("datos.txt",true);
+    public void cargarDatosGuardados() {
+    try {
+        // Verificar si el archivo existe antes de intentar cargarlo
+        java.io.File archivo = new java.io.File("datos.txt");
+        if (archivo.exists()) {
+            cargarDatos("datos.txt");
+        } else {
+            System.out.println("No se encontró archivo de datos guardados. Iniciando sistema vacío.");
+        }
+    } catch (Exception e) {
+        System.out.println("Error al cargar datos guardados: " + e.getMessage());
+    }
+}
+    
+    public void guardarDatosFinales()  {
+      ArchivoGrabacion archivo=new ArchivoGrabacion("datos.txt",false);
+      
         for(Area area: listaArea) {
             archivo.grabarLinea("AREA|"+area.getNombre()+"|"+area.getDescripcion()+"|"+area.getPresupuesto());
         }
@@ -143,9 +161,26 @@ public boolean validarNombreUnico(String validar, String tipo) {
         archivo.cerrar();
 
     }
-
     
+    public void cargarDatosPrecargados() {
+        try {
+            // Limpiar sistema actual
+            limpiarSistema();
 
-
+            // Intentar cargar desde archivo precargados.txt
+            java.io.File archivoPrecargados = new java.io.File("precargados.txt");
+            if (archivoPrecargados.exists()) {
+                cargarDatos("precargados.txt");
+            } 
+        } catch (Exception e) {
+            System.out.println("Error al cargar datos precargados: " + e.getMessage());
+        }
+    }
+    
+    public void limpiarSistema() {
+        listaArea.clear();
+        listaEmpleados.clear();
+        listaManagers.clear();
+    }
     
 }
