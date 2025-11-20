@@ -37,7 +37,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentsMenuItem = new javax.swing.JMenuItem();
+        altaEmpleado = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
@@ -48,6 +48,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cortex ERP");
 
         editMenu.setMnemonic('e');
         editMenu.setText("Managers");
@@ -78,9 +79,14 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
-        contentsMenuItem.setMnemonic('c');
-        contentsMenuItem.setText("Alta");
-        helpMenu.add(contentsMenuItem);
+        altaEmpleado.setMnemonic('c');
+        altaEmpleado.setText("Alta");
+        altaEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaEmpleadoActionPerformed(evt);
+            }
+        });
+        helpMenu.add(altaEmpleado);
 
         menuBar.add(helpMenu);
 
@@ -107,7 +113,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         menuBar.add(jMenu1);
 
         modificarArea.setMnemonic('f');
-        modificarArea.setText("Areas");
+        modificarArea.setText("Áreas");
         modificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarAreaActionPerformed(evt);
@@ -206,6 +212,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         ventanaBaja.setVisible(true);
     }//GEN-LAST:event_bajaAreaActionPerformed
 
+    private void altaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaEmpleadoActionPerformed
+        AltaEmpleado ventanaAlta = new AltaEmpleado(this.sistema);
+        ventanaAlta.setVisible(true);
+    }//GEN-LAST:event_altaEmpleadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,9 +226,9 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
     private javax.swing.JMenuItem altaArea;
+    private javax.swing.JMenuItem altaEmpleado;
     private javax.swing.JMenuItem bajaArea;
     private javax.swing.JMenuItem btnModificarArea;
-    private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;

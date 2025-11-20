@@ -67,7 +67,6 @@ public class Sistema {
         return this.listaManagers;
     }
     
-    
     public java.util.ArrayList<Empleado> getListaEmpleados() {
         return this.listaEmpleados;
     }

@@ -30,6 +30,7 @@ public class BajaArea extends javax.swing.JFrame {
         this.sistema = sistema;
         this.areaSeleccionada = null;
         btnEliminar.setEnabled(false);
+        actualizarListaAreas();
     }
 
     /**
