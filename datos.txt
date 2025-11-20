@@ -1,5 +1,5 @@
-AREA|Personal|Reclutamiento de personal, promociones, gestión de cargos|100000.0
-AREA|RRHH|Relacionamiento en la empresa, organigrama, gestión de equipos|79760.0
+AREA|Personal|Reclutamiento de personal, promociones, gestión de cargos|99568.0
+AREA|RRHH|Relacionamiento en la empresa, organigrama, gestión de equipos|80000.0
 AREA|Seguridad|Seguridad física, vigilancia, seguridad informática, protocolos y políticas de seguridad|120000.0
 AREA|Comunicaciones|Comunicaciones internas, reglas y protocolos, comunicaciones con proveedores y clientes|20000.0
 AREA|Marketing|Acciones planificadas, publicidad en medios masivos, publicidad en redes, gestión de redes|95000.0
@@ -7,4 +7,4 @@ MANAGER|Ana Martínez|4.568.369-1|10|099 123456
 MANAGER|Ricardo Morales|3.214.589-3|4|094 121212
 MANAGER|Laura Torales|3.589.257-5|1|099 654321
 MANAGER|Juan Pablo Zapata|4.555.197-7|5|099 202020
-EMPLEADO|AAA|123123|erwerqwerqreqwerq|20.0|Ricardo Morales|RRHH
+EMPLEADO|AAAA|213213123|asdasdfasdfasdf|1.0|Ana Martínez|Seguridad

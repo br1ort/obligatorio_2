@@ -259,12 +259,14 @@ public class RealizarMovimiento extends javax.swing.JFrame {
     }
     
     private void cargarAreas() {
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<String> modelOrigen = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<String> modelDestino = new DefaultComboBoxModel<>();
         for (Area area : sistema.getListaAreas()) {
-            model.addElement(area.getNombre());
+            modelOrigen.addElement(area.getNombre());
+            modelDestino.addElement(area.getNombre());
         }
-        comboAreaOrigen.setModel(model);
-        comboAreaDestino.setModel(model);
+        comboAreaOrigen.setModel(modelOrigen);
+        comboAreaDestino.setModel(modelDestino);
     }
     
     private void cargarEmpleadosAreaOrigen() {
@@ -324,8 +326,8 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         info.append("   • Salario restante: US$ ").append(String.format("%.2f", salarioRestante)).append("\n\n");
         
         info.append("ÁREA ORIGEN: ").append(areaOrigen.getNombre()).append("\n");
-        info.append("   • Presupuesto total: US$ ").append(String.format("" + areaOrigen.getPresupuesto())).append("\n");
-        info.append("   • Presupuesto utilizado: US$ ").append(String.format("%.2f" + areaOrigen.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Presupuesto total: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
+        info.append("   • Presupuesto utilizado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
         info.append("   • Reintegro por movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n");
         info.append("   • Nuevo presupuesto utilizado: US$ ").append(String.format("%.2f", (areaOrigen.getPresupuestoUtilizado() - reintegroOrigen))).append("\n\n");
         
@@ -333,7 +335,7 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         info.append("   • Presupuesto total: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
         info.append("   • Presupuesto utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
         info.append("   • Costo por movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n");
-        info.append("   • Nuevo presupuesto utilizado: US$ ").append(String.format("%.2f" + areaDestino.getPresupuestoUtilizado() + costoDestino)).append("\n");
+        info.append("   • Nuevo presupuesto utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado() + costoDestino)).append("\n");
         info.append("   • Presupuesto disponible actual: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n\n");
         
         if (movimientoPosible) {
