@@ -80,7 +80,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        reporteMovimientos = new javax.swing.JMenuItem();
         modificarArea = new javax.swing.JMenu();
         altaArea = new javax.swing.JMenuItem();
         bajaArea = new javax.swing.JMenuItem();
@@ -95,6 +95,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
+        cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Alta");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +104,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,13 +113,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Modificación");
         editMenu.add(pasteMenuItem);
 
         menuBar.add(editMenu);
 
+        helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
+        altaEmpleado.setMnemonic('c');
         altaEmpleado.setText("Alta");
         altaEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,9 +140,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("Report inteligente");
         jMenu1.add(aboutMenuItem1);
 
+        aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("Reporte de estado de áreas");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,11 +153,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(aboutMenuItem2);
 
-        jMenuItem1.setText("Reporte de movimientos");
-        jMenu1.add(jMenuItem1);
+        reporteMovimientos.setText("Reporte de movimientos");
+        reporteMovimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteMovimientosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(reporteMovimientos);
 
         menuBar.add(jMenu1);
 
+        modificarArea.setMnemonic('f');
         modificarArea.setText("Áreas");
         modificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +171,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        altaArea.setMnemonic('o');
         altaArea.setText("Alta");
         altaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +180,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         modificarArea.add(altaArea);
 
+        bajaArea.setMnemonic('s');
         bajaArea.setText("Baja");
         bajaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +189,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         modificarArea.add(bajaArea);
 
+        btnModificarArea.setMnemonic('a');
         btnModificarArea.setText("Modificación");
         btnModificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +198,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         modificarArea.add(btnModificarArea);
 
+        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,8 +227,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RealizarMovimiento(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarMovimiento
-        ReporteMovimientos realizarMovimiento = new ReporteMovimientos(this.sistema);
-        realizarMovimiento.setVisible(true);
+
     }//GEN-LAST:event_RealizarMovimiento
 
     private void altaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAreaActionPerformed
@@ -257,6 +273,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         bajaManager.setVisible(true);
     }//GEN-LAST:event_BajaManagerActionPerformed
 
+    private void reporteMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteMovimientosActionPerformed
+        ReporteMovimientos realizarMovimiento = new ReporteMovimientos(this.sistema);
+        realizarMovimiento.setVisible(true);
+    }//GEN-LAST:event_reporteMovimientosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,10 +297,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu modificarArea;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem reporteMovimientos;
     // End of variables declaration//GEN-END:variables
 
 }
