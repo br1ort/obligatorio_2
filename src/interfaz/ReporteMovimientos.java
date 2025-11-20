@@ -66,7 +66,8 @@ public class ReporteMovimientos extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(617, 373));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
