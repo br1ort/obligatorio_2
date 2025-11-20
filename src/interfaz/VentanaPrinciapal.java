@@ -19,8 +19,48 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
     public VentanaPrinciapal(String seleccion) {
         initComponents();
         
+        switch (seleccion) {
+        case "Nuevo":
+            sistema.limpiarSistema();
+            System.out.println("Sistema iniciado: Nuevo (vacío)");
+            break;
+            
+        case "Guardado":
+            sistema.cargarDatosGuardados();
+            System.out.println("Sistema iniciado: Desde archivo guardado");
+            break;
+            
+        case "Precargados":
+            sistema.cargarDatosPrecargados();
+            System.out.println("Sistema iniciado: Con datos precargados");
+            break;
+            
+        default:
+            sistema.limpiarSistema();
+            break;
+        }
+        
+        configurarCierreAutomatico();
     }
 
+    private void configurarCierreAutomatico() {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                guardarDatosAntesDeCerrar();
+            }
+        });
+    }
+    
+    private void guardarDatosAntesDeCerrar() {
+        try {
+            sistema.guardarDatosFinales();
+            System.out.println("Datos guardados automáticamente antes de cerrar");
+        } catch (Exception e) {
+            System.out.println("Error al guardar datos: " + e.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
