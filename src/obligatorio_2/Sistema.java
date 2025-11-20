@@ -7,7 +7,7 @@ public class Sistema {
     private ArrayList<Empleado>listaEmpleados= new ArrayList<Empleado>();
     private ArrayList<Manager>listaManagers=new ArrayList<Manager>();
 
-public boolean validarNombreUnico(String validar, String tipo) {
+    public boolean validarNombreUnico(String validar, String tipo) {
     String v = validar.trim();
     
     switch (tipo) {
@@ -59,6 +59,7 @@ public boolean validarNombreUnico(String validar, String tipo) {
     public java.util.ArrayList<Area> getListaAreas() {
         return this.listaArea;
     }
+    
     public java.util.ArrayList<Manager> getListaManagers() {
         return this.listaManagers;
     }

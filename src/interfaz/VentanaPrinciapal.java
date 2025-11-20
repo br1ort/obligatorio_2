@@ -93,7 +93,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/logo.png"))); // NOI18N
 
-        editMenu.setMnemonic('e');
         editMenu.setText("Managers");
 
         cutMenuItem.setText("Alta");
@@ -104,7 +103,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
-        copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Baja");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +119,6 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
-        helpMenu.setMnemonic('h');
         helpMenu.setText("Empleados");
 
         altaEmpleado.setText("Alta");
@@ -154,6 +151,7 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
+        modificarArea.setMnemonic('f');
         modificarArea.setText("Áreas");
         modificarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,10 +183,11 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         });
         modificarArea.add(btnModificarArea);
 
+        exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Realizar movimientos");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                RealizarMovimiento(evt);
             }
         });
         modificarArea.add(exitMenuItem);
@@ -212,9 +211,10 @@ public class VentanaPrinciapal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    private void RealizarMovimiento(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarMovimiento
+        RealizarMovimiento realizarMovimiento = new RealizarMovimiento(this.sistema);
+        realizarMovimiento.setVisible(true);
+    }//GEN-LAST:event_RealizarMovimiento
 
     private void altaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAreaActionPerformed
         AltaArea ventanaAlta = new AltaArea(this.sistema);
