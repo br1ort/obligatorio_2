@@ -324,15 +324,15 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         info.append("   • Salario anual restante: US$ ").append(String.format("%.2f", salarioRestante)).append("\n\n");
         
         info.append("ORIGEN: ").append(areaOrigen.getNombre()).append("\n");
-        info.append("   • Presupuesto área: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
-        info.append("   • Presupuesto empleado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Presupuesto anual área: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
+        info.append("   • Utilizado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
         info.append("   • Reintegro por movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n\n");
         
         info.append("DESTINO: ").append(areaDestino.getNombre()).append("\n");
-        info.append("   • Presupuesto del área: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
+        info.append("   • Presupuesto anual área: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
         info.append("   • Utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
         info.append("   • Disponible: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n");
-        info.append("   • Costo del movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n");
+        info.append("   • Costo del movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n\n");
         
         if (movimientoPosible) {
             info.append("MOVIMIENTO POSIBLE\n");

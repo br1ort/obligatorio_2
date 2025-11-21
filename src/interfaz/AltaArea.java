@@ -44,15 +44,16 @@ public class AltaArea extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
+        areasRegistradas1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alta de Áreas");
         getContentPane().setLayout(null);
 
         areasRegistradas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        areasRegistradas.setText("Áreas Registradas:");
+        areasRegistradas.setText("Crear Nueva Área:");
         getContentPane().add(areasRegistradas);
-        areasRegistradas.setBounds(30, 30, 130, 20);
+        areasRegistradas.setBounds(340, 30, 130, 20);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
@@ -101,6 +102,7 @@ public class AltaArea extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        lstAreas.setEnabled(false);
         jScrollPane1.setViewportView(lstAreas);
 
         getContentPane().add(jScrollPane1);
@@ -122,6 +124,11 @@ public class AltaArea extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(340, 160, 280, 100);
+
+        areasRegistradas1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        areasRegistradas1.setText("Áreas Registradas:");
+        getContentPane().add(areasRegistradas1);
+        areasRegistradas1.setBounds(30, 30, 130, 20);
 
         setSize(new java.awt.Dimension(666, 459));
         setLocationRelativeTo(null);
@@ -231,6 +238,7 @@ public class AltaArea extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel areasRegistradas;
+    private javax.swing.JLabel areasRegistradas1;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
