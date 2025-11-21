@@ -204,6 +204,7 @@ public class AltaManager extends javax.swing.JFrame {
             actualizarLista();
             limpiarCampos();
             
+            
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (HeadlessException ex) {
