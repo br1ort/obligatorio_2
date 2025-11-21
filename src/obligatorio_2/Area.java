@@ -43,7 +43,7 @@ public class Area {
         this.presupuestoUtilizado = presupuestoUtilizado;
     }
     
-        public void agregarSalario(double salarioAnual) {
+    public void agregarSalario(double salarioAnual) {
         this.presupuestoUtilizado += salarioAnual;
     }
     
