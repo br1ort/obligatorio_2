@@ -7,6 +7,7 @@ public class Sistema {
     private ArrayList<Empleado>listaEmpleados= new ArrayList<Empleado>();
     private ArrayList<Manager>listaManagers=new ArrayList<Manager>();
     private ArrayList<String>listaMovimientos=new ArrayList<String>();
+   
 
     public boolean validarNombreUnico(String validar, String tipo) {
     String v = validar.trim();
@@ -41,7 +42,7 @@ public class Sistema {
     }
     return true;
 }
-    
+
     public void cargarDatosArea(String nombreArea, String descripcion, double presupuesto) {
        Area area= new Area(nombreArea,descripcion,presupuesto);
         listaArea.add(area);
@@ -242,5 +243,9 @@ public class Sistema {
             "Salario restante: US$ %.2f\nReintegro área origen: US$ %.2f\nCosto área destino: US$ %.2f",
             salarioRestante, reintegroOrigen, costoDestino
         );
+    }
+    
+    public java.util.ArrayList<String> getListaMovimientos() {
+        return this.listaMovimientos;
     }
 }

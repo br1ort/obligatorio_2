@@ -15,14 +15,17 @@ import javax.swing.table.DefaultTableModel;
 public class ReporteMovimientos extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReporteMovimientos.class.getName());
-
+    private Sistema sistema;
     /**
      * Creates new form RealizarMovimiento
      */
     public ReporteMovimientos(Sistema sys) {
         initComponents();
-        Sistema sistema=sys;
-        DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();
+        this.sistema = sistema;
+        cargarDatosTabla();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        
+        
     }
 
     /**
@@ -34,36 +37,39 @@ public class ReporteMovimientos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTable = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mes", "Area de origen", "Area de destino", "Nombre del empleado"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable);
+        jTable.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jTable, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTable, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(617, 373));
@@ -75,26 +81,26 @@ public class ReporteMovimientos extends javax.swing.JFrame {
      */
     private void cargarDatosTabla() {
         
-        ArrayList<String> datos = new ArrayList<>();
+        ArrayList<String> datos = sistema.getListaMovimientos();
         
     // Definir nombres de columnas fijos
-    String[] nombresColumnas = {"Columna 1", "Columna 2", "Columna 3", "Columna 4"};
-
+    String[] nombresColumnas = {"Mes", "Area de origen", "Area de destino", "Nombre del empleado"};
+    
     // Crear el modelo con las 4 columnas
     DefaultTableModel modelo = new DefaultTableModel(nombresColumnas, 0);
-
-    // Cargar cada fila desde el ArrayList
+    modelo.setRowCount(0);
     for (String fila : datos) {
         String[] partes = fila.split("\\|");      
             modelo.addRow(partes);
     }
-    jTable.setModel(modelo);
+    jTable1.setModel(modelo);
+   
     }
             
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable;
+    private javax.swing.JScrollPane jTable;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

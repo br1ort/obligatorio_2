@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/Application.java to edit this template
  */
 package interfaz;
+import java.util.ArrayList;
+import obligatorio_2.Area;
+import obligatorio_2.Empleado;
+import obligatorio_2.Manager;
 import obligatorio_2.Sistema;
 /**
  *
@@ -38,7 +42,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             sistema.limpiarSistema();
             break;
         }
-        
+        tieneDatos();
         configurarCierreAutomatico();
     }
 
@@ -230,8 +234,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         RealizarMovimiento ventanaMovimiento = new RealizarMovimiento(this.sistema);
         ventanaMovimiento.setVisible(true);
     }//GEN-LAST:event_RealizarMovimiento
-
+    public void tieneDatos() {
+        
+        ArrayList<String>listaMovimientos=sistema.getListaMovimientos();
+        ArrayList<Area> listaArea = sistema.getListaAreas();
+        ArrayList<Empleado>listaEmpleados= sistema.getListaEmpleados();
+        ArrayList<Manager>listaManagers=sistema.getListaManagers();
+        
+        if (listaMovimientos.isEmpty()) {
+        jMenuItem1.setEnabled(false); 
+        } else {
+        jMenuItem1.setEnabled(true); 
+        }
+        
+        if (listaManagers.isEmpty()) {
+        copyMenuItem.setEnabled(false);
+        pasteMenuItem.setEnabled(false);
+        } else {
+        pasteMenuItem.setEnabled(true);   
+        copyMenuItem.setEnabled(true); 
+        }
+        if (listaArea.isEmpty()) {
+        bajaArea.setEnabled(false); 
+        btnModificarArea.setEnabled(false);
+        exitMenuItem.setEnabled(false);
+        aboutMenuItem2.setEnabled(false);
+        } else {
+        bajaArea.setEnabled(true); 
+        btnModificarArea.setEnabled(true);
+        aboutMenuItem2.setEnabled(true);
+        exitMenuItem.setEnabled(true);
+        }
+    }
     private void altaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAreaActionPerformed
+        
         AltaArea ventanaAlta = new AltaArea(this.sistema);
         ventanaAlta.setVisible(true);
     }//GEN-LAST:event_altaAreaActionPerformed
