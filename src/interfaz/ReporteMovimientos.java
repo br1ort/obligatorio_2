@@ -21,7 +21,7 @@ public class ReporteMovimientos extends javax.swing.JFrame {
      */
     public ReporteMovimientos(Sistema sys) {
         initComponents();
-        this.sistema = sistema;
+        this.sistema = sys;
         cargarDatosTabla();
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         
