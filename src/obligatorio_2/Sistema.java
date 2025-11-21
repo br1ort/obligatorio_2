@@ -8,6 +8,59 @@ public class Sistema {
     private ArrayList<Manager>listaManagers=new ArrayList<Manager>();
     private ArrayList<String>listaMovimientos=new ArrayList<String>();
    
+    public boolean sePuedeAbrir(String tipoDeLista) {
+        boolean retorno=false;
+        
+        switch (tipoDeLista.toLowerCase()) {
+    case "area":
+        if (!listaArea.isEmpty()) {
+            for (int i = 0; i < listaArea.size() && !retorno; i++) {
+                String area = listaArea.get(i).getNombre();
+                boolean estaElArea = false;
+                for (int j = 0; j < listaEmpleados.size() && !estaElArea; j++) {
+                    if (area.equals(listaEmpleados.get(j).getNombre())) {
+                        estaElArea = true;
+                    }
+                }
+                if (!estaElArea) {
+                    retorno = true;
+                }
+            }
+        }
+        break;
+
+    case "empleado":
+        retorno = !listaEmpleados.isEmpty();
+        break;
+
+    case "movimiento":
+        retorno = !listaMovimientos.isEmpty();
+        break;
+
+    case "manager":
+        if (!listaManagers.isEmpty()) {
+            for (int i = 0; i < listaManagers.size() && !retorno; i++) {
+                String manager = listaManagers.get(i).getNombre();
+                boolean estaElManager = false;
+                for (int j = 0; j < listaEmpleados.size() && !estaElManager; j++) {
+                    if (manager.equals(listaEmpleados.get(j).getNombre())) {
+                        estaElManager = true;
+                    }
+                }
+                if (!estaElManager) {
+                    retorno = true;
+                }
+            }
+        }
+        break;
+
+    default:
+        retorno = false;
+        break;
+    }
+        return retorno;
+    }
+  
 
     public boolean validarNombreUnico(String validar, String tipo) {
     String v = validar.trim();
