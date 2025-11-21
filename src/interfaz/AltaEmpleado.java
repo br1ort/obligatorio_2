@@ -373,10 +373,10 @@ public class AltaEmpleado extends javax.swing.JFrame {
             
             // Validar presupuesto del área (salario anual = salario * 12)
             double salarioAnual = salario * 12;
-            if (salarioAnual > areaSeleccionada.getPresupuesto()) {
+            if (!areaSeleccionada.puedeAceptarSalario(salarioAnual)) {
                 JOptionPane.showMessageDialog(this, 
                     "El área '" + areaSeleccionada.getNombre() + "' no tiene presupuesto suficiente.\n" +
-                    "Presupuesto disponible: US$ " + areaSeleccionada.getPresupuesto() + "\n" +
+                    "Presupuesto disponible: US$ " + areaSeleccionada.getPresupuestoDisponible() + "\n" +
                     "Salario anual requerido: US$ " + salarioAnual,
                     "Error de Presupuesto", 
                     JOptionPane.ERROR_MESSAGE);
@@ -395,7 +395,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
             );
             
             // Actualizar presupuesto del área
-            areaSeleccionada.setPresupuesto(areaSeleccionada.getPresupuesto() - salarioAnual);
+            areaSeleccionada.agregarSalario(salarioAnual);
             
             // Agregar empleado al sistema
             sistema.getListaEmpleados().add(nuevoEmpleado);

@@ -51,6 +51,9 @@ public class Sistema {
     public void cargarDatosEmpleado(String nombre, String cedula, String celular, String curriculum, double salarioMensual, Manager manager, Area area) {
         Empleado empleado = new Empleado(nombre, cedula, celular, curriculum, salarioMensual, manager, area);
         listaEmpleados.add(empleado);
+        
+        double salarioAnual = salarioMensual * 12;
+        area.agregarSalario(salarioAnual);
     }
 
     public void cargarDatosManager(String nombre, String cedula, int antiguedad, String celular) {
