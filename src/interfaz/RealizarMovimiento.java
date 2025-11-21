@@ -324,18 +324,15 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         info.append("   • Salario anual restante: US$ ").append(String.format("%.2f", salarioRestante)).append("\n\n");
         
         info.append("ORIGEN: ").append(areaOrigen.getNombre()).append("\n");
-        info.append("   • Presupuesto del área: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
-        info.append("   • Presupuesto anual del empleado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
-        info.append("   • Reintegro luego del movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n");
-        info.append("   • Presupuesto utilizado luego del movimiento: US$ ").append(String.format("%.2f", (areaOrigen.getPresupuestoUtilizado() - reintegroOrigen))).append("\n\n");
+        info.append("   • Presupuesto área: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
+        info.append("   • Presupuesto empleado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Reintegro por movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n\n");
         
         info.append("DESTINO: ").append(areaDestino.getNombre()).append("\n");
         info.append("   • Presupuesto del área: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
-        info.append("   • Utilizado: US$ -").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
-        info.append("   • Disponible: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n\n");
+        info.append("   • Utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Disponible: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n");
         info.append("   • Costo del movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n");
-        info.append("   • Utilizado luego del movimiento: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado() + costoDestino)).append("\n");
-        
         
         if (movimientoPosible) {
             info.append("MOVIMIENTO POSIBLE\n");
@@ -370,10 +367,10 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         int confirmacion = JOptionPane.showConfirmDialog(this,
             "¿Está seguro de realizar el movimiento?\n\n" +
             "Empleado: " + empleado.getNombre() + "\n" +
-            "Del área: " + areaOrigen.getNombre() + "\n" +
-            "Al área: " + areaDestino.getNombre() + "\n" +
-            "A partir del mes: " + comboMes.getSelectedItem() + "\n\n" +
-            "Este movimiento actualizará los presupuestos de ambas áreas.",
+            "Desde: " + areaOrigen.getNombre() + "\n" +
+            "Hacia: " + areaDestino.getNombre() + "\n" +
+            "A partir del mes de: " + comboMes.getSelectedItem() + "\n\n" +
+            "*Este movimiento actualizará los presupuestos de ambas áreas.",
             "Confirmar Movimiento",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.QUESTION_MESSAGE);
@@ -385,9 +382,9 @@ public class RealizarMovimiento extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,
                     "Movimiento realizado exitosamente\n\n" +
                     "Empleado: " + empleado.getNombre() + "\n" +
-                    "Se movió de " + areaOrigen.getNombre() + " a " + areaDestino.getNombre() + "\n" +
-                    "A partir de: " + comboMes.getSelectedItem() + "\n\n" +
-                    "Los presupuestos han sido actualizados automáticamente.",
+                    "Movimiento: " + areaOrigen.getNombre() + " hacia " + areaDestino.getNombre() + "\n" +
+                    "A partir del mes de " + comboMes.getSelectedItem() + "\n\n" +
+                    "Se han actualizados los presupuestos de ambas áreas.",
                     "Movimiento Completado",
                     JOptionPane.INFORMATION_MESSAGE);
                 
