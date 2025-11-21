@@ -178,7 +178,7 @@ public class AltaArea extends javax.swing.JFrame {
             Area nuevaArea = new Area(
                 txtNombre.getText().trim(), 
                 txtDescripcion.getText().trim(), 
-                presupuesto
+                presupuesto,0
             );
             
             sistema.getListaAreas().add(nuevaArea);
