@@ -43,8 +43,8 @@ public class Sistema {
     return true;
 }
 
-    public void cargarDatosArea(String nombreArea, String descripcion, double presupuesto) {
-       Area area= new Area(nombreArea,descripcion,presupuesto);
+    public void cargarDatosArea(String nombreArea, String descripcion, double presupuesto, double presupuestoUtilizado) {
+        Area area= new Area(nombreArea,descripcion,presupuesto, presupuestoUtilizado);
         listaArea.add(area);
     }
     
@@ -85,11 +85,13 @@ public class Sistema {
             String queEs = partes[0];
 
             if (queEs.equals("AREA")) {
-                if (partes.length < 4) continue;
+                if (partes.length < 5) continue;
                 String nombreArea = partes[1];
                 String descripcion = partes[2];
                 double presupuesto = Double.parseDouble(partes[3]);
-                cargarDatosArea(nombreArea, descripcion, presupuesto);
+                double presupuestoUtilizado = Double.parseDouble(partes[4]);
+                cargarDatosArea(nombreArea, descripcion, presupuesto, presupuestoUtilizado);
+                
             }
             if (queEs.equals("MANAGER")) {
                 if (partes.length < 5) continue;
@@ -116,20 +118,19 @@ public class Sistema {
                 String celular = partes[3];
                 String curriculum = partes[4];
                 double salarioMensual = Double.parseDouble(partes[5]);
-                String strmanager = partes[6];
-                String strarea = partes[7];
+                String strManager = partes[6];
+                String strArea = partes[7];
                 Manager manager = null;
                 Area area = null;
+                
                 for (Manager m: listaManagers) {
-                    if (m.getNombre() != null && m.getNombre().equals(strmanager)) {
+                    if (m.getNombre() != null && m.getNombre().equals(strManager)) {
                         manager = m;
-                        break;
                     }
                 }
                 for (Area a: listaArea) {
-                    if (a.getNombre() != null && a.getNombre().equals(strarea)) {
+                    if (a.getNombre() != null && a.getNombre().equals(strArea)) {
                         area = a;
-                        break;
                     }
                 }
                 cargarDatosEmpleado(nombre, cedula, celular, curriculum, salarioMensual, manager, area);
@@ -156,13 +157,16 @@ public class Sistema {
       ArchivoGrabacion archivo=new ArchivoGrabacion("datos.txt",false);
       
         for(Area area: listaArea) {
-            archivo.grabarLinea("AREA|"+area.getNombre()+"|"+area.getDescripcion()+"|"+area.getPresupuesto());
+            archivo.grabarLinea("AREA|"+area.getNombre()+"|"+area.getDescripcion()+"|"+area.getPresupuesto()+"|"+area.getPresupuestoUtilizado());
         }
         for(Manager manager: listaManagers) {
             archivo.grabarLinea("MANAGER|"+manager.getNombre()+"|"+manager.getCedula()+"|"+manager.getAntiguedad()+"|"+manager.getCelular());
         }
         for(Empleado empleado: listaEmpleados) {
-            archivo.grabarLinea("EMPLEADO|"+empleado.getNombre()+"|"+empleado.getCedula()+"|"+empleado.getCurriculum()+"|"+empleado.getSalarioMensual()+"|"+empleado.getManager().getNombre()+"|"+empleado.getArea().getNombre());
+            archivo.grabarLinea("EMPLEADO|"+empleado.getNombre()+
+                    "|"+empleado.getCedula()+"|"+empleado.getCelular()+
+                    "|"+empleado.getCurriculum()+"|"+empleado.getSalarioMensual()+
+                    "|"+empleado.getManager().getNombre()+"|"+empleado.getArea().getNombre());
         }
         archivo.cerrar();
 

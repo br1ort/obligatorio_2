@@ -8,7 +8,7 @@ public class Area {
     private double presupuestoUtilizado;
    
     
-    public Area(String nombre, String descripcion, double presupuesto) {
+    public Area(String nombre, String descripcion, double presupuesto, double presupuestoUtilizado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.presupuesto = presupuesto;

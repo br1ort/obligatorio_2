@@ -317,34 +317,33 @@ public class RealizarMovimiento extends javax.swing.JFrame {
         boolean movimientoPosible = areaDestino.puedeAceptarSalario(costoDestino);
         
         StringBuilder info = new StringBuilder();
-        info.append("INFORMACIÓN DEL MOVIMIENTO\n\n");
-        
         info.append("EMPLEADO:\n");
         info.append("   • Nombre: ").append(empleado.getNombre()).append("\n");
         info.append("   • Salario mensual: US$ ").append(empleado.getSalarioMensual()).append("\n");
         info.append("   • Meses restantes: ").append(13 - mes).append("\n");
-        info.append("   • Salario restante: US$ ").append(String.format("%.2f", salarioRestante)).append("\n\n");
+        info.append("   • Salario anual restante: US$ ").append(String.format("%.2f", salarioRestante)).append("\n\n");
         
-        info.append("ÁREA ORIGEN: ").append(areaOrigen.getNombre()).append("\n");
-        info.append("   • Presupuesto total: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
-        info.append("   • Presupuesto utilizado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
-        info.append("   • Reintegro por movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n");
-        info.append("   • Nuevo presupuesto utilizado: US$ ").append(String.format("%.2f", (areaOrigen.getPresupuestoUtilizado() - reintegroOrigen))).append("\n\n");
+        info.append("ORIGEN: ").append(areaOrigen.getNombre()).append("\n");
+        info.append("   • Presupuesto del área: US$ ").append(String.format("%.2f", areaOrigen.getPresupuesto())).append("\n");
+        info.append("   • Presupuesto anual del empleado: US$ ").append(String.format("%.2f", areaOrigen.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Reintegro luego del movimiento: US$ ").append(String.format("%.2f", reintegroOrigen)).append("\n");
+        info.append("   • Presupuesto utilizado luego del movimiento: US$ ").append(String.format("%.2f", (areaOrigen.getPresupuestoUtilizado() - reintegroOrigen))).append("\n\n");
         
-        info.append("ÁREA DESTINO: ").append(areaDestino.getNombre()).append("\n");
-        info.append("   • Presupuesto total: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
-        info.append("   • Presupuesto utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
-        info.append("   • Costo por movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n");
-        info.append("   • Nuevo presupuesto utilizado: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado() + costoDestino)).append("\n");
-        info.append("   • Presupuesto disponible actual: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n\n");
+        info.append("DESTINO: ").append(areaDestino.getNombre()).append("\n");
+        info.append("   • Presupuesto del área: US$ ").append(String.format("%.2f", areaDestino.getPresupuesto())).append("\n");
+        info.append("   • Utilizado: US$ -").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado())).append("\n");
+        info.append("   • Disponible: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoDisponible())).append("\n\n");
+        info.append("   • Costo del movimiento: US$ ").append(String.format("%.2f", costoDestino)).append("\n");
+        info.append("   • Utilizado luego del movimiento: US$ ").append(String.format("%.2f", areaDestino.getPresupuestoUtilizado() + costoDestino)).append("\n");
+        
         
         if (movimientoPosible) {
-            info.append("✅ MOVIMIENTO POSIBLE\n");
-            info.append("El área destino tiene presupuesto suficiente para aceptar el empleado.");
+            info.append("MOVIMIENTO POSIBLE\n");
+            info.append("El área de destino tiene presupuesto suficiente para aceptar el empleado.");
             btnRealizarMovimiento.setEnabled(true);
         } else {
-            info.append("❌ MOVIMIENTO NO POSIBLE\n");
-            info.append("El área destino NO tiene presupuesto suficiente.");
+            info.append("MOVIMIENTO NO ES POSIBLE\n");
+            info.append("El área de destino NO tiene presupuesto suficiente.");
             btnRealizarMovimiento.setEnabled(false);
         }
         
@@ -384,7 +383,7 @@ public class RealizarMovimiento extends javax.swing.JFrame {
             
             if (exito) {
                 JOptionPane.showMessageDialog(this,
-                    "✅ Movimiento realizado exitosamente\n\n" +
+                    "Movimiento realizado exitosamente\n\n" +
                     "Empleado: " + empleado.getNombre() + "\n" +
                     "Se movió de " + areaOrigen.getNombre() + " a " + areaDestino.getNombre() + "\n" +
                     "A partir de: " + comboMes.getSelectedItem() + "\n\n" +
@@ -394,17 +393,7 @@ public class RealizarMovimiento extends javax.swing.JFrame {
                 
                 // Actualizar interfaz
                 cargarEmpleadosAreaOrigen(); // Actualizar lista de empleados
-                actualizarInformacion();     // Actualizar información
-                
-            } else {
-                JOptionPane.showMessageDialog(this,
-                    "❌ No se pudo realizar el movimiento.\n\n" +
-                    "Posibles causas:\n" +
-                    "• El área destino ya no tiene presupuesto suficiente\n" +
-                    "• Error en el sistema\n" +
-                    "Verifique los datos e intente nuevamente.",
-                    "Error en Movimiento",
-                    JOptionPane.ERROR_MESSAGE);
+                actualizarInformacion();     // Actualizar información           
             }
         }
     }

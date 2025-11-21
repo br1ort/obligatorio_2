@@ -242,9 +242,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ArrayList<Manager>listaManagers=sistema.getListaManagers();
         
         if (listaMovimientos.isEmpty()) {
-        jMenuItem1.setEnabled(false); 
+        //jMenuItem1.setEnabled(false); 
         } else {
-        jMenuItem1.setEnabled(true); 
+        //jMenuItem1.setEnabled(true); 
         }
         
         if (listaManagers.isEmpty()) {
