@@ -229,7 +229,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         RealizarMovimiento ventanaMovimiento = new RealizarMovimiento(this.sistema);
         ventanaMovimiento.setVisible(true);
     }//GEN-LAST:event_RealizarMovimiento
-    
+
+  
     private void altaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaAreaActionPerformed
         
         AltaArea ventanaAlta = new AltaArea(this.sistema);
