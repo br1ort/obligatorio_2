@@ -113,6 +113,9 @@ public class Sistema {
         Manager manager = new Manager(nombre, cedula, antiguedad, celular);
         listaManagers.add(manager);
     }
+    public void cargarDatosMovimiento(String movimiento) {
+        listaMovimientos.add(movimiento);
+    }
     
     public java.util.ArrayList<Area> getListaAreas() {
         return this.listaArea;
@@ -273,7 +276,26 @@ public class Sistema {
     
     // Método de registrar movimientos en arrayList, para el reporte
     private void registrarMovimiento(int mes, Area areaOrigen, Area areaDestino, Empleado empleado) {
-        listaMovimientos.add(mes+"|"+areaOrigen.getNombre()+"|"+areaDestino.getNombre()+"|"+empleado.getNombre());
+        String mesLetras=" ";
+        switch (mes) {
+            case 1: mesLetras = "Enero"; break;
+            case 2: mesLetras = "Febrero"; break;
+            case 3: mesLetras = "Marzo"; break;
+            case 4: mesLetras = "Abril"; break;
+            case 5: mesLetras = "Mayo"; break;
+            case 6: mesLetras = "Junio"; break;
+            case 7: mesLetras = "Julio"; break;
+            case 8: mesLetras = "Agosto"; break;
+            case 9: mesLetras = "Septiembre"; break;
+            case 10: mesLetras = "Octubre"; break;
+            case 11: mesLetras = "Noviembre"; break;
+            case 12: mesLetras = "Diciembre";               
+            break;
+        
+            default:
+                break;
+        }
+        listaMovimientos.add(mesLetras+"|"+areaOrigen.getNombre()+"|"+areaDestino.getNombre()+"|"+empleado.getNombre());
     }
     
     public java.util.ArrayList<Empleado> getEmpleadosPorArea(Area area) {

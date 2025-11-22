@@ -16,6 +16,7 @@ public class run {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+         seleccionPrincipal selPrin= new seleccionPrincipal();
         new seleccionPrincipal().setVisible(true);
         //new Bienvenida().setVisible(true);
         

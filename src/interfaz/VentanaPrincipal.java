@@ -246,8 +246,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No hay áreas registrados");
 
         } else {       
-            ReporteEstadoAreas reporteEstadoAreas = new ReporteEstadoAreas(this.sistema);
-            reporteEstadoAreas.setVisible(true);
+            //ReporteEstadoAreas reporteEstadoAreas = new ReporteEstadoAreas(this.sistema);
+            //reporteEstadoAreas.setVisible(true);
         }  
     }//GEN-LAST:event_aboutMenuItem2ActionPerformed
 
@@ -302,7 +302,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BajaManagerActionPerformed
 
     private void reporteMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteMovimientosActionPerformed
-        if(!sistema.sePuedeAbrir("movimientos")) {
+        if(sistema.getListaMovimientos().isEmpty()) {
             JOptionPane.showMessageDialog(this, "No hay movimientos registrados");
 
         } else {
