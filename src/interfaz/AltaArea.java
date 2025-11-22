@@ -176,12 +176,16 @@ public class AltaArea extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "El presupuesto debe ser mayor a 0", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+                if(!sistema.validarNombreUnico(txtNombre.getText().trim(),"AREA")) {
+                    JOptionPane.showMessageDialog(this, "El área ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "El presupuesto debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            // Crear el área y agregarla al sistema
+            
             Area nuevaArea = new Area(
                 txtNombre.getText().trim(), 
                 txtDescripcion.getText().trim(), 

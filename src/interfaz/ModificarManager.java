@@ -3,26 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-
+import java.awt.HeadlessException;
+import java.util.Collections;
+import java.util.Comparator;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import obligatorio_2.Sistema;
+import obligatorio_2.Manager;
+import obligatorio_2.Manager;
+import obligatorio_2.Manager;
+import obligatorio_2.Sistema;
 
-/**
- *
- * @author bruno
- */
 public class ModificarManager extends javax.swing.JFrame {
+    public Sistema sistema;
+    private Manager managerSeleccionado;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModificarManager.class.getName());
-
-    /**
-     * Creates new form ModificarManager
-     */
-    public ModificarManager(Sistema sistema) {
+    public ModificarManager(Sistema s){
         initComponents();
-        JOptionPane.showMessageDialog(this, "Fuera de servicio uwu");
+        this.sistema = s;
+        limpiarCampos();
+        actualizarLista();
+        this.sistema = sistema;
+        this.managerSeleccionado = null;
+        btnModificar.setEnabled(false);
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,27 +37,284 @@ public class ModificarManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        areasRegistradas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAntiguedad = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtEmpleados = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstManagers = new javax.swing.JList<>();
+        txtNombre = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtCelular = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Alta de Managers");
+        getContentPane().setLayout(null);
 
-        pack();
+        areasRegistradas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        areasRegistradas.setText("Managers Registrados:");
+        getContentPane().add(areasRegistradas);
+        areasRegistradas.setBounds(30, 30, 160, 20);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Nombre:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(340, 60, 160, 30);
+
+        txtAntiguedad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtAntiguedad.setText("txtNombre");
+        txtAntiguedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAntiguedadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtAntiguedad);
+        txtAntiguedad.setBounds(340, 210, 280, 30);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Antiguedad");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(340, 180, 160, 30);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Cantidad de empleados a cargo");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(340, 300, 270, 30);
+
+        txtEmpleados.setText("txtPresupuesto");
+        txtEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmpleadosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtEmpleados);
+        txtEmpleados.setBounds(340, 330, 280, 30);
+
+        btnModificar.setLabel("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificar);
+        btnModificar.setBounds(490, 380, 130, 30);
+
+        lstManagers.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lstManagers);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 60, 250, 330);
+
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setText("txtNombre");
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre);
+        txtNombre.setBounds(340, 90, 280, 30);
+
+        txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCedula.setText("txtNombre");
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCedula);
+        txtCedula.setBounds(340, 150, 280, 30);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Cédula");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(340, 120, 160, 30);
+
+        txtCelular.setText("txtPresupuesto");
+        txtCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCelularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCelular);
+        txtCelular.setBounds(340, 270, 280, 30);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Celular");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(340, 240, 170, 30);
+
+        getAccessibleContext().setAccessibleName("Alta de Manager");
+
+        setSize(new java.awt.Dimension(669, 440));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void txtAntiguedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAntiguedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAntiguedadActionPerformed
+
+    private void txtEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpleadosActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+      guardarManager();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void txtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCelularActionPerformed
+
+    private void guardarManager() {
+        try {
+            // Validar que los campos no estén vacíos
+            if (txtAntiguedad.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (txtCedula.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "La descripción no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (txtEmpleados.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El presupuesto no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (txtNombre.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El presupuesto no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if(!sistema.validarNombreUnico(txtCedula.getText().trim(),"MANAGER")) {
+                JOptionPane.showMessageDialog(this, "El Manager ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Crear el manager y agregarla al sistema
+            Manager nuevoManager = new Manager(
+                txtNombre.getText().trim(),
+                txtCedula.getText().trim(),
+                Integer.parseInt(txtAntiguedad.getText().trim()), 
+                txtEmpleados.getText().trim()
+            );
+            
+            sistema.getListaManagers().add(nuevoManager);
+            
+            JOptionPane.showMessageDialog(this, 
+                "Manager '" + nuevoManager.getNombre() + "' creada exitosamente!\n" +
+                "Antiguedad de " + nuevoManager.getAntiguedad(), 
+                "Manager Guardada", 
+                JOptionPane.INFORMATION_MESSAGE);
+            actualizarLista();
+            limpiarCampos();
+            
+            
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (HeadlessException ex) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void actualizarLista() {
+        // Obtener la lista del sistema
+        java.util.ArrayList<Manager> lista = sistema.getListaManagers();
+
+        
+
+        // Pasar los datos al JList visual
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for (Manager m : lista) {
+            listModel.addElement(m.getNombre() + " (" + m.getAntiguedad() + " años)");
+        }
+        lstManagers.setModel(listModel);
+
+    }
+    private void lstManagersValueChanged(javax.swing.event.ListSelectionEvent evt) {                                      
+        if (!evt.getValueIsAdjusting() && lstManagers.getSelectedIndex() != -1) {
+            int selectedIndex = lstManagers.getSelectedIndex();
+            if (selectedIndex >= 0 && selectedIndex < sistema.getListaManagers().size()) {
+                managerSeleccionado = sistema.getListaManagers().get(selectedIndex);
+                cargarDatosManager();
+                btnModificar.setEnabled(true);
+            }
+        }
+    }      
+    private void guardarCambios() {
+        if (managerSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Por favor seleccione un manager", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String nuevoCelular = txtCelular.getText().trim();
+        
+        if (nuevoCelular.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "La descripción no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        managerSeleccionado.setCelular(nuevoCelular);
+        
+        JOptionPane.showMessageDialog(this, 
+            "Descripción del área '" + managerSeleccionado.getNombre() + "' actualizada exitosamente",
+            "Cambios Guardados", 
+            JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void limpiarCampos() {
+        txtAntiguedad.setText("");
+        txtNombre.setText("");
+        txtEmpleados.setText("");
+        txtCedula.setText("");
+    }
+        private void cargarDatosManager() {
+        if (managerSeleccionado != null) {
+            txtNombre.setText(managerSeleccionado.getNombre());
+            txtCelular.setText(managerSeleccionado.getCelular());
+            txtAntiguedad.setText(String.valueOf(managerSeleccionado.getAntiguedad()));
+            txtCedula.setText(managerSeleccionado.getCelular());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel areasRegistradas;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lstManagers;
+    private javax.swing.JTextField txtAntiguedad;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCelular;
+    private javax.swing.JTextField txtEmpleados;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
